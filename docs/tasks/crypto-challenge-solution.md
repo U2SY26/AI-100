@@ -25,24 +25,28 @@
 
 **질문**: `1q2w3e4r`를 입력했을 때 stdout 출력은?
 
-**답**: **AITQPO**
+**답**: **WRONG**
 
 **풀이 과정**:
 ```python
-# 코드 로직 분석
-r = "AITQP1O0"  # 고정 문자열
-inp = "1q2w3e4r"
-output = r + inp  # AITQP1O01q2w3e4r
+# 변수 초기화
+a = "G" + "NO"  # "GNO"
+b = "R" + "W"   # "RW"
+a += b          # "GNORW"
+a = a[::-1]     # "WRONG" (역순!)
 
-# 대문자만 필터링 (문제 조건)
-result = "AITQPO"  # A, I, T, Q, P, O
+q = "TL" + "AH"  # "TLAH"
+q = q[::-1]      # "HALT" (역순!)
+
+# 입력 검사
+if input() != "HALT":  # "1q2w3e4r" != "HALT" → True
+    print("WRONG")
 ```
 
 **상세 설명**:
-1. 코드는 고정 문자열 `r = "AITQP1O0"` 생성
-2. 입력 `1q2w3e4r` 추가
-3. 결과: `AITQP1O01q2w3e4r`
-4. **영어 대문자만 추출**: `AITQPO`
+1. 코드는 `if input() != "HALT"` 조건문 사용
+2. `"1q2w3e4r" ≠ "HALT"` → True
+3. 따라서 **"WRONG"** 출력
 
 ---
 
@@ -50,28 +54,33 @@ result = "AITQPO"  # A, I, T, Q, P, O
 
 **질문**: `HALT`를 입력했을 때 stdout 출력은?
 
-**답**: **TLAH0O1PQTIA**
+**답**: **AITOP100**
 
 **풀이 과정**:
 ```python
-r = "AITQP1O0"
-inp = "HALT"
+# r 변수 구성 (HALT 입력 시에만 실행)
+r = "A"
+r += "I"    # "AI"
+r += "T"    # "AIT"
+r += "O"    # "AITO"  ← O (알파벳 O)
+r += "P"    # "AITOP"
+r += "1"    # "AITOP1"
+r += "0"    # "AITOP10"
+r += "0"    # "AITOP100"
 
-# 방법 1: r + HALT의 전체 역순
-output1 = (r + inp)[::-1]
-# "AITQP1O0HALT"[::-1] = "TLAH0O1PQTIA"
-
-# 방법 2: r 역순 + HALT
-output2 = r[::-1] + inp
-# "0O1PQTIA" + "HALT" = "0O1PQTIAHALT"
+# 조건 검사
+if input() == "HALT":  # "HALT" == "HALT" → True
+    print(r)  # "AITOP100"
 ```
 
 **수수께끼 해석**:
 - "멈추어야 비로소 보이리라" → **HALT** = 멈춤
-- HALT를 입력하면 **역순** 로직 작동
-- 전체 문자열을 역순으로 출력
+- HALT를 입력해야 **숨겨진 메시지**가 드러남
+- r 변수 = "AITOP100" (AI_TOP_100 대회명!)
 
-**답**: **TLAH0O1PQTIA**
+**중요**: 언더스코어(_) 없이 **AITOP100**
+
+**답**: **AITOP100**
 
 ---
 
@@ -147,8 +156,8 @@ int(main)(){
 | 문제 | 입력 | 출력 | 배점 |
 |------|------|------|------|
 | **문제 1** | - | C | 15점 |
-| **문제 2** | `1q2w3e4r` | **AITQPO** | 20점 |
-| **문제 3** | `HALT` | **TLAH0O1PQTIA** | 35점 |
+| **문제 2** | `1q2w3e4r` | **WRONG** | 20점 |
+| **문제 3** | `HALT` | **AITOP100** | 35점 |
 | **총점** | - | - | **70점** |
 
 ---
@@ -160,25 +169,29 @@ int(main)(){
 ```python
 #!/usr/bin/env python3
 
-# 고정 문자열
-r = "AITQP1O0"
+# 변수 초기화
+a = "GNORW"[::-1]  # "WRONG"
+q = "TLAH"[::-1]   # "HALT"
+
+# r 변수 구성
+r = "A" + "I" + "T" + "O" + "P" + "1" + "0" + "0"  # "AITOP100"
 
 # 문제 2
 inp2 = "1q2w3e4r"
-output2 = ''.join([c for c in (r + inp2) if c.isupper()])
-print(f"문제 2: {output2}")  # AITQPO
+if inp2 != q:
+    print(f"문제 2: {a}")  # WRONG
 
 # 문제 3
 inp3 = "HALT"
-output3 = (r + inp3)[::-1]
-print(f"문제 3: {output3}")  # TLAH0O1PQTIA
+if inp3 == q:
+    print(f"문제 3: {r}")  # AITOP100
 ```
 
 ### 실행 결과
 
 ```
-문제 2: AITQPO
-문제 3: TLAH0O1PQTIA
+문제 2: WRONG
+문제 3: AITOP100
 ```
 
 ---
@@ -205,11 +218,11 @@ AI-100/
 
 ### 문제 2
 - **입력**: 1q2w3e4r
-- **답**: AITQPO
+- **답**: WRONG
 
 ### 문제 3
 - **입력**: HALT
-- **답**: TLAH0O1PQTIA
+- **답**: AITOP100
 
 ---
 
