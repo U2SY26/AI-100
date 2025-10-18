@@ -24,7 +24,7 @@
 
 ### 1. 춘식도락 (Menu Analysis) - 90점
 
-**파일 위치**: `/d/AI-100/menu_data_entry.py`
+**파일 위치**: `/d/AI-100/challenges/04-menu-analysis/`
 
 **답안**:
 - Q1: 1번 메뉴 - 답 확정
@@ -34,11 +34,12 @@
 - Q5: 2월 식단 최적화 (20일) - 답 확정
 
 **검증**:
-- ✅ Question 3 검증 완료 ([docs/tasks/question3-region-verification.md](docs/tasks/question3-region-verification.md))
-- ✅ Question 5 검증 완료 (validate_question5.py)
+- ✅ Question 3 검증 완료 (challenges/04-menu-analysis/validate_question3.py)
+- ✅ Question 5 검증 완료 (challenges/04-menu-analysis/validate_question5.py)
 
 **문서**:
-- [docs/tasks/menu-challenge-guide.md](docs/tasks/menu-challenge-guide.md) - 완전한 가이드
+- challenges/04-menu-analysis/MENU_CHALLENGE_README.md - 완전한 가이드
+- docs/tasks/menu-challenge-guide.md (있는 경우)
 
 **Git 커밋**: ✅ 완료
 
@@ -46,7 +47,7 @@
 
 ### 2. 석판 암호 (Crypto Tablet) - 70점
 
-**파일 위치**: `/d/AI-100/main.c`, `/d/AI-100/solve_crypto_correct.py`
+**파일 위치**: `/d/AI-100/challenges/02-crypto-tablet/`
 
 **답안**:
 - Q1: 프로그래밍 언어 - **C**
@@ -66,8 +67,8 @@ else:
 ```
 
 **문서**:
-- [docs/aitop100_solution.md](docs/aitop100_solution.md)
-- [docs/tasks/crypto-challenge-solution.md](docs/tasks/crypto-challenge-solution.md)
+- docs/aitop100_solution.md
+- docs/tasks/crypto-challenge-solution.md (있는 경우)
 
 **Git 커밋**: ✅ 완료
 
@@ -77,7 +78,7 @@ else:
 
 ### 3. PDF Textfinder - 75점 (40% 완료)
 
-**파일 위치**: `/d/AI-100/ai_top_100_textfinder/`
+**파일 위치**: `/d/AI-100/challenges/01-textfinder/`
 
 **현재 상태**:
 
@@ -109,11 +110,10 @@ else:
 - ❌ **PDF 3**: NASA 논문 - 5단어 패턴 찾기 필요
 
 **스크립트**:
-- [solution.py](ai_top_100_textfinder/solution.py) - 통합 솔루션
-- [analyze_all_colors.py](ai_top_100_textfinder/analyze_all_colors.py) - 색상 분석
+- challenges/01-textfinder/analyze_split_pdfs.py - PDF 분석
 
 **문서**:
-- [ANSWERS.md](ai_top_100_textfinder/ANSWERS.md)
+- docs/Hidden_Text_Final_Report.docx - 최종 리포트
 
 **다음 단계**:
 1. Tesseract 설치 후 PDF 1 처리
@@ -124,7 +124,7 @@ else:
 
 ### 4. Age of AI 영상 분석 - 80점 (90% 완료)
 
-**파일 위치**: `/d/AI-100/age_of_ai_challenge/`
+**파일 위치**: `/d/AI-100/challenges/03-age-of-ai/`
 
 **현재 답안 상태**:
 
@@ -153,9 +153,9 @@ else:
 - 필요: 영상 확인
 
 **문서**:
-- [README.md](age_of_ai_challenge/README.md) - 개요
-- [CRITICAL_ISSUES.md](age_of_ai_challenge/CRITICAL_ISSUES.md) - 위험 분석
-- [VERIFICATION_CHECKLIST.md](age_of_ai_challenge/VERIFICATION_CHECKLIST.md) - 검증 체크리스트
+- challenges/03-age-of-ai/README.md - 개요
+- challenges/03-age-of-ai/CRITICAL_ISSUES.md - 위험 분석
+- challenges/03-age-of-ai/VERIFICATION_CHECKLIST.md - 검증 체크리스트
 
 **다음 단계**:
 1. 🔴 우선: Q5, Q7 영상 확인 (복수선택)
@@ -168,41 +168,77 @@ else:
 
 ```
 AI-100/
-├── .claude/                    # Claude Code 설정
-├── docs/
-│   ├── aitop100_solution.md    # 석판 암호 솔루션
-│   └── tasks/
-│       ├── menu-challenge-guide.md
-│       ├── question3-region-verification.md
-│       ├── crypto-challenge-guide.md
-│       └── crypto-challenge-solution.md
+├── .claude/                       # Claude Code 설정
+├── challenges/                    # 모든 챌린지 파일
+│   ├── 01-textfinder/            # PDF 숨겨진 텍스트 찾기
+│   │   ├── 1-1.pdf, 1-2.pdf      # 원본 PDF 파일
+│   │   ├── pdf_1.pdf ~ pdf_4.pdf # 문제 PDF
+│   │   ├── 1.pdf                 # 추가 PDF
+│   │   ├── analyze_split_pdfs.py # PDF 분석 스크립트
+│   │   └── pdf 속 스텔스 텍스트 추적기 # 한글 관련 파일
+│   │
+│   ├── 02-crypto-tablet/         # 석판 암호 챌린지
+│   │   ├── crypto*.c             # C 소스 파일들
+│   │   ├── main.c                # Polyglot C/Python
+│   │   ├── ai_top_100_crypto.png # 석판 이미지
+│   │   ├── solve_crypto*.py      # 솔루션 스크립트
+│   │   ├── analyze_crypto.py     # 암호 분석
+│   │   ├── extract_crypto_code.py # 코드 추출
+│   │   ├── test_crypto.py        # 테스트
+│   │   └── correct_analysis.py   # 정확한 분석
+│   │
+│   ├── 03-age-of-ai/             # Age of AI 영상 팩트체크
+│   │   ├── README.md
+│   │   ├── CRITICAL_ISSUES.md
+│   │   ├── VERIFICATION_CHECKLIST.md
+│   │   ├── video_analysis_notes.md
+│   │   ├── ageofai_series.txt
+│   │   ├── The Age of AI         # 영상 관련 파일
+│   │   └── The_Age_of_AI_FactCheck_Answers.docx
+│   │
+│   ├── 04-menu-analysis/         # 춘식도락 메뉴 분석
+│   │   ├── menu_images/          # 메뉴 이미지 (8개)
+│   │   ├── menu_data_entry.py    # Streamlit 앱
+│   │   ├── menu_analysis.py      # 분석 스크립트
+│   │   ├── menu_parser.py        # 파서
+│   │   ├── solve_questions.py    # 문제 풀이
+│   │   ├── answers.json          # 답안 데이터
+│   │   ├── validate_question3.py # Q3 검증
+│   │   ├── validate_question5.py # Q5 검증
+│   │   └── MENU_CHALLENGE_README.md
+│   │
+│   └── 05-modeling/              # 전투 예측 모델링
+│       ├── train_battles.json    # 훈련 데이터
+│       └── test_battles.json     # 테스트 데이터
 │
-├── menu_data_entry.py          # 춘식도락 Streamlit 앱
-├── menu_analysis.py            # 메뉴 분석 스크립트
-├── validate_question3.py       # Q3 검증
-├── validate_question5.py       # Q5 검증
+├── docs/                          # 모든 문서
+│   ├── aitop100_solution.md      # 솔루션 문서
+│   ├── frontend_templates.md     # 프론트엔드 템플릿
+│   ├── QUICK_START.md            # 빠른 시작 가이드
+│   ├── Hidden_Text_Final_Report.docx # 텍스트파인더 리포트
+│   ├── NotebookLM Mind Map.png   # 마인드맵
+│   ├── tasks/                    # 작업 관련 문서
+│   ├── templates/                # 템플릿
+│   ├── phases/                   # 단계별 문서
+│   ├── sprints/                  # 스프린트 문서
+│   └── logs/                     # 로그
 │
-├── main.c                      # 석판 코드 (Polyglot C/Python)
-├── solve_crypto.py             # 초기 솔루션 (오답)
-├── solve_crypto_correct.py     # 수정된 솔루션 (정답)
+├── utils/                         # 유틸리티 스크립트
+│   └── quick_start_templates.py  # 템플릿 유틸리티
 │
-├── ai_top_100_textfinder/
-│   ├── pdf_1.pdf               # 문제 1 (35MB, 이미지 PDF)
-│   ├── pdf_2.pdf               # 문제 2 ✅
-│   ├── pdf_3.pdf               # 문제 3 ❌
-│   ├── pdf_4.pdf               # 문제 4 ⚠️
-│   ├── solution.py             # 통합 솔루션
-│   ├── analyze_all_colors.py   # 색상 분석
-│   ├── pdf_1_page*_enhanced.png # PDF 1 향상 이미지
-│   └── ANSWERS.md              # 답안 정리
+├── archive/                       # 원본 zip 아카이브
+│   ├── ai_top_100_textfinder.zip # 31MB
+│   ├── ai_top_100_menu.zip       # 8.2MB
+│   └── ai_top_100_modeling.zip   # 928KB
 │
-├── age_of_ai_challenge/
-│   ├── README.md
-│   ├── CRITICAL_ISSUES.md
-│   ├── video_analysis_notes.md
-│   └── VERIFICATION_CHECKLIST.md
+├── scripts/                       # 빌드/배포 스크립트
+├── src/                          # 소스 코드
+├── ocr/                          # OCR 관련
 │
-└── AI_100_MASTER_STATUS.md     # 이 파일
+├── package.json                  # Node.js 설정
+├── requirements.txt              # Python 의존성
+├── README.md                     # 프로젝트 README
+└── AI_100_MASTER_STATUS.md       # 이 파일
 ```
 
 ---
