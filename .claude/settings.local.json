@@ -14,7 +14,10 @@
       "Bash(else cat .gitignore)",
       "Bash(fi)",
       "Bash(git reset)",
-      "Bash(git add .claude/ docs/ .env.example QUICK_START.md README.md frontend_templates.md)"
+      "Bash(git add .claude/ docs/ .env.example QUICK_START.md README.md frontend_templates.md)",
+      "Bash(git add .gitignore package.json package-lock.json)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd project configuration and documentation files\n\n- Add Claude Code configuration (.claude/)\n- Add project documentation (README, QUICK_START)\n- Add development templates (docs/templates/)\n- Add environment example (.env.example)\n- Add package dependencies (package.json, package-lock.json)\n- Add .gitignore to exclude node_modules and build artifacts\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push)"
     ],
     "deny": [],
     "ask": []

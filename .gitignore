@@ -55,3 +55,4 @@ coverage/
 # Misc
 .expo/
 .expo-shared/
+node_modules
