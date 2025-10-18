@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install -r requirements.txt)",
+      "Bash(python -c \"import pandas, numpy, sklearn, torch, transformers, streamlit, gradio, flask, fastapi; print(''✓ 모든 주요 라이브러리 설치 완료!'')\")",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(npm install)",
+      "Bash(npm install --legacy-peer-deps)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".\\scripts\\compatibility-check.ps1\" -CheckType quick)",
+      "Bash(git add .)",
+      "Bash(if [ ! -f .gitignore ])",
+      "Bash(then echo \"파일 없음\")",
+      "Bash(else cat .gitignore)",
+      "Bash(fi)",
+      "Bash(git reset)",
+      "Bash(git add .claude/ docs/ .env.example QUICK_START.md README.md frontend_templates.md)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
